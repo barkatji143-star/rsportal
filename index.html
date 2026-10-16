@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSPORTAL — Print • Pay • Earn</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">RS</div><div><strong>RSPORTAL</strong><small>PRINT • PAY • EARN</small></div></div>
+  <input id="search" class="search" placeholder="सर्विस खोजें… (जैसे PAN, प्रिंट, रिचार्ज)">
+  <button class="avatar" id="profileBtn">RS <span>यूज़र</span></button>
+</header>
+<div class="layout">
+<aside class="sidebar">
+  <button class="nav active" data-target="home">⌂ <span>डैशबोर्ड</span></button>
+  <button class="nav" data-target="services">▣ <span>Print Services</span></button>
+  <button class="nav" data-target="wallet">▣ <span>Wallet</span></button>
+  <button class="nav" data-target="transactions">↻ <span>ट्रांज़ैक्शन</span></button>
+  <button class="nav" data-target="admin">⚙ <span>Admin Panel (डेमो)</span></button>
+  <div class="side-note"><b>RSPORTAL</b><p>आपकी डिजिटल सेवाएँ, एक जगह।</p><small>सुरक्षित • सरल • तेज़</small></div>
+</aside>
+<main>
+<section id="home" class="page active">
+  <div class="hero"><div><span class="eyebrow">आपका डिजिटल सर्विस सेंटर</span><h1>Print, Pay & Manage<br><em>सब कुछ एक जगह</em></h1><p>दस्तावेज़ प्रिंट, बिल भुगतान और वॉलेट मैनेजमेंट के लिए आपका पोर्टल।</p><button class="primary" data-goto="services">सर्विस देखें →</button></div><div class="printer">🖨️<div>RSPORTAL<br><small>PRINT CENTER</small></div></div></div>
+  <div class="stats">
+    <article class="stat"><span>वॉलेट बैलेंस</span><strong id="balanceTop">₹ 0.00</strong><small>डेमो बैलेंस — असली पैसा नहीं</small></article>
+    <article class="stat"><span>इस महीने के ट्रांज़ैक्शन</span><strong id="txCount">0</strong><small>इस ब्राउज़र में सेव</small></article>
+    <article class="stat"><span>उपलब्ध सर्विस</span><strong>12+</strong><small>सर्विस रिक्वेस्ट बनाएं</small></article>
+  </div>
+  <div class="section-head"><div><h2>Quick Services</h2><p>अपनी ज़रूरत की सर्विस चुनें</p></div><button class="link" data-goto="services">सभी देखें →</button></div>
+  <div id="homeServices" class="service-grid"></div>
+  <div class="notice"><b>महत्वपूर्ण:</b> यह starter demo है। वॉलेट में दिखने वाला बैलेंस नकली/स्थानीय demo data है। असली UPI, बैंकिंग या सरकारी सेवाएँ चलाने के लिए अधिकृत प्रदाता, सर्वर और सुरक्षा सेटअप ज़रूरी है।</div>
+</section>
+<section id="services" class="page">
+  <div class="page-title"><h1>Print & Digital Services</h1><p>सेवा चुनें और रिक्वेस्ट बनाएं। वास्तविक सरकारी आवेदन यहाँ अपने-आप जमा नहीं होते।</p></div>
+  <div id="allServices" class="service-grid"></div>
+</section>
+<section id="wallet" class="page">
+  <div class="page-title"><h1>My Wallet</h1><p>डेमो वॉलेट — अभी कोई असली भुगतान नहीं होगा।</p></div>
+  <div class="wallet-card"><div><span>Available Demo Balance</span><strong id="balanceMain">₹ 0.00</strong><small>केवल इस ब्राउज़र में सेव</small></div><div class="wallet-actions"><button class="primary" id="addMoney">＋ Add Money (Demo)</button><button class="outline" id="withdraw">↗ Withdraw (Demo)</button></div></div>
+  <div class="panel"><h2>वॉलेट इस्तेमाल</h2><p>असली वॉलेट के लिए server-side ledger, KYC/AML लागू नियम, भुगतान प्रदाता की मंज़ूरी और सुरक्षित webhook verification आवश्यक हैं। किसी भी client-side बैलेंस को असली धन न मानें।</p></div>
+</section>
+<section id="transactions" class="page">
+  <div class="page-title"><h1>Transaction History</h1><p>इस डिवाइस पर बने demo रिकॉर्ड।</p></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>समय</th><th>विवरण</th><th>प्रकार</th><th>राशि</th><th>स्थिति</th></tr></thead><tbody id="txRows"></tbody></table></div><p id="emptyTx">अभी कोई ट्रांज़ैक्शन नहीं है।</p></div>
+</section>
+<section id="admin" class="page">
+  <div class="page-title"><h1>Admin Panel — Preview</h1><p>यह UI preview है, सुरक्षित admin authentication अभी configured नहीं है।</p></div>
+  <div class="stats"><article class="stat"><span>कुल demo यूज़र</span><strong>1</strong></article><article class="stat"><span>Pending requests</span><strong id="requestCount">0</strong></article><article class="stat"><span>Wallet mode</span><strong>DEMO</strong></article></div>
+  <div class="panel"><h2>सर्विस रिक्वेस्ट</h2><div id="requests"></div><p class="muted">Production में admin role server पर verify करें; केवल frontend में admin छिपाना सुरक्षा नहीं है।</p></div>
+</section>
+</main></div>
+<dialog id="serviceDialog"><form method="dialog" id="serviceForm"><button class="close" aria-label="बंद करें">×</button><h2 id="dialogTitle">Service Request</h2><p id="dialogDesc"></p><label>आपका नाम<input id="customerName" required placeholder="पूरा नाम"></label><label>मोबाइल नंबर<input id="customerPhone" required inputmode="numeric" pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल"></label><label>नोट / विवरण<textarea id="customerNote" placeholder="ज़रूरी जानकारी (संवेदनशील नंबर न लिखें)"></textarea></label><button class="primary" type="submit">Demo Request बनाएं</button></form></dialog>
+<script src="app.js"></script>
+</body></html>
